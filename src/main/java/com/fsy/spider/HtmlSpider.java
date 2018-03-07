@@ -87,6 +87,10 @@ public class HtmlSpider {
 //        parseUrl();
 
         for(String waitCrawUrl : allUrls){
+            //谷歌相关的不下载
+            if(waitCrawUrl.contains("google")){
+                continue;
+            }
             String savePath = null;
 
             // 未处理a 标签
