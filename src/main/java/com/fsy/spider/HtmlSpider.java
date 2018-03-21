@@ -206,9 +206,11 @@ public class HtmlSpider {
             // ../ ../../ /
             if(scriptUrlStr.startsWith("/")){
                 return HtmlSpiderOption.SAVEDIR + "/" +  scriptUrlStr;
-            }else if(scriptUrlStr.startsWith("../")){
-                return HtmlSpiderOption.SAVEDIR + "/parentScript1/" + scriptUrlStr  ;
             }else if(scriptUrlStr.startsWith("../../")){
+                scriptUrlStr = scriptUrlStr.replaceFirst("\\.\\./\\.\\./","");
+                return HtmlSpiderOption.SAVEDIR + "/parentScript1/" + scriptUrlStr  ;
+            }else if(scriptUrlStr.startsWith("../")){
+                scriptUrlStr = scriptUrlStr.replaceFirst("\\.\\./","");
                 return HtmlSpiderOption.SAVEDIR + "/parentScript2/" + scriptUrlStr  ;
             }
 
@@ -243,10 +245,17 @@ public class HtmlSpider {
             // ../ ../../ /
             if(cssUrlStr.startsWith("/")){
                 return HtmlSpiderOption.SAVEDIR + "/" +  cssUrlStr;
-            }else if(cssUrlStr.startsWith("../")){
-                return HtmlSpiderOption.SAVEDIR + "/parentCss1/" + cssUrlStr  ;
             }else if(cssUrlStr.startsWith("../../")){
+
+                cssUrlStr = cssUrlStr.replaceFirst("\\.\\./\\.\\./","");
                 return HtmlSpiderOption.SAVEDIR + "/parentCss2/" + cssUrlStr  ;
+            }else if(cssUrlStr.startsWith("../")){
+
+                cssUrlStr = cssUrlStr.replaceFirst("\\.\\./","");
+
+                return HtmlSpiderOption.SAVEDIR + "/parentCss1/" + cssUrlStr  ;
+            }else{
+                return HtmlSpiderOption.SAVEDIR  +"/"+  cssUrlStr  ;
             }
 
 
