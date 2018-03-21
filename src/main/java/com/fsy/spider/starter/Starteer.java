@@ -8,25 +8,10 @@ import com.fsy.spider.HtmlSpider;
 public class Starteer {
     public static void main(String [] args){
 
-        String url = "http://www.yinwang.org/";
 
-        HtmlSpider.saveLocation = "/Users/fushiyong/yinwang";
-
-        //
+        new HtmlSpider().start0();
 
 
-//        System.out.println("please input what kind of website u want to craw~~~");
-//
-//
-//        Scanner sc = new Scanner(System.in);
-//
-//        String url = sc.nextLine();
-//
-//        System.out.println("please input location want  to save ~~~\n if you not specify , the default is user directory. ");
-//
-//        HtmlSpider.saveLocation = sc.nextLine();
-
-        new HtmlSpider(url).start0();
     }
 
 }
