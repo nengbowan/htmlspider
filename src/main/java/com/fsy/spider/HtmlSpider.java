@@ -52,7 +52,14 @@ public class HtmlSpider {
                     recordCrwaedUrlMap(waitCrawUrl);
                 }else{
                     // ../ ../../ /
-                    String responseStr = WGet.getHtml(new URL(HtmlSpiderOption.HOMEPAGE + "/"+ waitCrawUrl));
+
+                    String responseStr = null;
+                    if(waitCrawUrl.startsWith("/")){
+                        responseStr= WGet.getHtml(new URL(HtmlSpiderOption.HOMEPAGE + waitCrawUrl));
+                    }else{
+                        responseStr= WGet.getHtml(new URL(HtmlSpiderOption.HOMEPAGE + "/"+ waitCrawUrl));
+                    }
+
 
                     FileUtil.save(responseStr,  path );
 
@@ -95,8 +102,6 @@ public class HtmlSpider {
         //js脚本
         List<String> scriptUrl = getScriptUrl(url);
 
-
-
         downCurrentUrl(url);
 
         doCssUrl(cssUrl);
@@ -110,11 +115,6 @@ public class HtmlSpider {
 
             doAUrl(aUrl, isIterator);
         }
-
-
-
-
-
 
     }
 

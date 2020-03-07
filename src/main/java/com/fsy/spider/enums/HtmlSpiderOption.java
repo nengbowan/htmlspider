@@ -34,7 +34,7 @@ public class HtmlSpiderOption {
 //    public static String SAVEDIR ="/tmp/huaidan";
 
     //爬取的主页
-    public static String HOMEPAGE  = "https://v3.bootcss.com/examples/dashboard/" ;
+    public static String HOMEPAGE  = "http://ttcaiyun.com" ;
 
     //保存文件路径
     public static String SAVEDIR ="/tmp/huaidan";
